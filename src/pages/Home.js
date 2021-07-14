@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Layout from '../components/Layout'
-
+import ImageSlider from '../components/ImageSlider'
 const Home = () => {
 
 
     return (
         <>
-            <Layout />
+            <h1>Hola soy el home</h1>
         </>
     )
 }
