@@ -1,13 +1,10 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import Products from '../components/Products'
+import initialState from '../initialState'
 const Shop = () => {
     return (
         <>
-            <Navbar />
-            <Products  />
-            <Footer />
+            <Products products={initialState.products} />
         </>
     )
 }

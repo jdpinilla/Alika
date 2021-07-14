@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import Layout from '../components/Layout'
-import ImageSlider from '../components/ImageSlider'
+import React from 'react'
+import initialState from '../initialState'
 const Home = () => {
 
+    console.log(initialState.products)
 
     return (
         <>
-            <h1>Hola soy el home</h1>
+            <h1>Home</h1>
         </>
     )
 }
