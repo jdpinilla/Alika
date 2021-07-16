@@ -1,6 +1,4 @@
-/*!************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/styles/Navbar.css ***!
-  \************************************************************************************/
+@import url(//db.onlinewebfonts.com/c/7cf9fd1dbd9b63d372722fe7b9f13acc?family=PurissimaBoldW00-Regular);
 .Navbar {
   background-color: #fdedec;
   height: 80px;
@@ -8,7 +6,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
   margin: 0;
@@ -74,20 +72,22 @@
   align-items: center;
   text-decoration: none;
   color: black;
+  transition: 0.3s;
+}
+.Nav_Item:hover {
+  transform: scale(1.5);
 }
 
-/*!************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/styles/Footer.css ***!
-  \************************************************************************************/
 .Footer {
   height: 160px;
-  background-color: #d9d9ed;
+  background-color: #5a5a5a08;
   bottom: 0;
   width: 100%;
   z-index: 10;
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
+  clear: both;
 }
 @media screen and (max-width: 768px) {
   .Footer {
@@ -125,6 +125,15 @@
   align-items: center;
   justify-content: center;
   padding-right: 30px;
+}
+.Social_Icon {
+  padding-left: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.Social_Icon:hover {
+  transform: scale(1.3);
 }
 .Footer_Bot {
   display: flex;
@@ -180,46 +189,155 @@
   border-top: #eaecee 0.2px solid;
 }
 
-/*!****************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/styles/SlideImage.css ***!
-  \****************************************************************************************/
-.slider {
-  position: relative;
-  height: 100vh;
+@font-face {
+  font-family: 'PurissimaBoldW00-Regular';
+  src: url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.eot');
+  src: url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.eot?#iefix')
+      format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.woff2')
+      format('woff2'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.woff')
+      format('woff'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.ttf')
+      format('truetype'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.svg#PurissimaBoldW00-Regular')
+      format('svg');
+}
+.Collection {
+  width: 100%;
+  height: 100%;
+  display: f;
+  justify-content: center;
+}
+
+.Collection_Containers {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+.Collection_Containers figure:hover {
+  transform: scale(1.1);
 }
 
-.image {
-  max-width: 100%;
-  width: 1000px;
-  height: 80%;
+.Collection_Containers figure {
+  position: relative;
+  height: 500px;
+  width: 400px;
+  overflow: hidden;
   border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.right-arrow {
-  position: absolute;
-  top: 50%;
-  right: 32px;
-  font-size: 3rem;
-  color: black;
-  cursor: pointer;
-  user-select: none;
-}
-.left-arrow {
-  position: absolute;
-  top: 50%;
-  left: 32px;
-  font-size: 3rem;
-  color: black;
-  cursor: pointer;
-  user-select: none;
+.Collection_Containers img {
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-in-out;
 }
 
-/*!*********************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/styles/App.css ***!
-  \*********************************************************************************/
+.Collection_Containers .Collection_Text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 350px;
+  font-weight: bold;
+}
+
+.Collection_Containers .Collection_Text h2 {
+  margin-bottom: 15px;
+  text-shadow: 0 1px 1px black;
+  color: #fff;
+}
+
+.Collection_Containers .Collection_Text button {
+  font-family: Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 40px;
+  max-width: 150px;
+  border: oldlace;
+  background: white;
+  font-size: 18px;
+  border-radius: 1px;
+}
+
+.Products {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  margin-top: 30px;
+  font-family: 'Futura', 'sans-serif';
+}
+
+.Products-item {
+  max-width: 350px;
+  text-decoration: none;
+  box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
+    1px 3px 8px rgba(39, 44, 49, 0.03);
+  border-radius: 10px;
+  margin: 0 0 20px 0;
+  position: relative;
+  transition: 0.8s;
+}
+
+.Products-item:hover {
+  transform: scale(1.1);
+}
+.Products-item > .Product-item-info {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  transition: all 500ms ease-out;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+.Products-item:hover > .Product-item-info {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+.Product-item-info h2 {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.Product-item-info h2 span {
+  padding: 10px;
+}
+.Product-item-info p {
+  font-size: 14px;
+  font-weight: 300;
+}
+.Products-item img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  object-fit: contain;
+}
+.Products-item img:hover {
+}
+.Products-item button {
+  background: linear-gradient(to bottom, #63b8ee 5%, #468ccf 100%);
+  width: 100%;
+  padding: 10px;
+  border-radius: 0px 0px 5px 5px;
+  border: 0px;
+  outline: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 300;
+}
+.Products-item button:hover {
+  background-color: rgba(39, 44, 49, 0.06);
+}
+
 * {
   margin: 0;
 }

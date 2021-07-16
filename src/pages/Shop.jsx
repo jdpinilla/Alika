@@ -4,7 +4,7 @@ import initialState from '../initialState';
 const Shop = () => {
   return (
     <>
-      <Products products={initialState.products} />
+      <Products />
     </>
   );
 };
