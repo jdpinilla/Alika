@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 import '../styles/Footer.css';
@@ -9,18 +10,18 @@ const Footer = () => {
         <div className="Footer_Top">
           <h3 className="Title">Alika</h3>
           <div className="Social_Media">
-            <div className="Social_Icon">
+            <Link className="Social_Icon">
               <FaFacebook size="25px" />
-            </div>
-            <div className="Social_Icon">
+            </Link>
+            <Link className="Social_Icon">
               <FaInstagram size="25px" />
-            </div>
-            <div className="Social_Icon">
+            </Link>
+            <Link className="Social_Icon">
               <FaWhatsapp size="25px" />
-            </div>
-            <div className="Social_Icon">
+            </Link>
+            <Link className="Social_Icon">
               <AiOutlineMail size="25px" />
-            </div>
+            </Link>
           </div>
         </div>
 

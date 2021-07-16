@@ -1,0 +1,77 @@
+@import url(//db.onlinewebfonts.com/c/7cf9fd1dbd9b63d372722fe7b9f13acc?family=PurissimaBoldW00-Regular);
+
+@font-face {
+  font-family: 'PurissimaBoldW00-Regular';
+  src: url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.eot');
+  src: url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.eot?#iefix')
+      format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.woff2')
+      format('woff2'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.woff')
+      format('woff'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.ttf')
+      format('truetype'),
+    url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.svg#PurissimaBoldW00-Regular')
+      format('svg');
+}
+.Collection {
+  width: 100%;
+  height: 100%;
+  display: f;
+  justify-content: center;
+}
+
+.Collection_Containers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.Collection_Containers figure:hover {
+  transform: scale(1.1);
+}
+
+.Collection_Containers figure {
+  position: relative;
+  height: 500px;
+  width: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Collection_Containers img {
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-in-out;
+}
+
+.Collection_Containers .Collection_Text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 350px;
+  font-weight: bold;
+}
+
+.Collection_Containers .Collection_Text h2 {
+  margin-bottom: 15px;
+  text-shadow: 0 1px 1px black;
+  color: #fff;
+}
+
+.Collection_Containers .Collection_Text button {
+  font-family: Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 40px;
+  max-width: 150px;
+  border: oldlace;
+  background: white;
+  font-size: 18px;
+  border-radius: 1px;
+}

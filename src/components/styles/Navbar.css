@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
   margin: 0;
@@ -71,4 +71,8 @@
   align-items: center;
   text-decoration: none;
   color: black;
+  transition: 0.3s;
+}
+.Nav_Item:hover {
+  transform: scale(1.5);
 }
