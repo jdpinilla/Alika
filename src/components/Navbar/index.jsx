@@ -1,6 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineUser } from 'react-icons/ai';
+import {
+  AiOutlineUser,
+  AiOutlineSearch,
+  AiOutlineShopping,
+} from 'react-icons/ai';
 import { HiShoppingCart } from 'react-icons/hi';
 import { FaBars } from 'react-icons/fa';
 import { Badge } from '@material-ui/core';
@@ -10,47 +14,51 @@ import AppContext from '../../context/AppContext';
 
 const Navbar = ({ toggle }) => {
   const { state } = useContext(AppContext);
+  const [navbar, setNavbar] = useState(false);
   const { cart } = state;
+
+  const changeBackground = () => {
+    if (window.scrollY >= 20) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener('scroll', changeBackground);
+
   return (
-    <nav className="Navbar">
-      <div className="Navbar_container">
-        <div className="Nav_img">
-          <Link to="/">
-            <img src={logo} alt="logoAlika" className="logo" />
-          </Link>
+    <div>
+      <nav className={navbar ? 'Navbar active' : 'Navbar'}>
+        <div className="Navbar_container2">
+          <div className="Bars" onClick={toggle}>
+            <FaBars size="1.6rem" />
+          </div>
+          <div className="Nav_img2">
+            <Link to="/">
+              <img src={logo} alt="logoAlika" className="logo2" />
+            </Link>
+          </div>
+          <div className="Navbar_content2">
+            <Link to="/checkout" className="Nav_Item">
+              <Badge>
+                <AiOutlineShopping size="2rem" />
+                {cart.length > 0 && (
+                  <div className="Header Alert">{cart.length} </div>
+                )}
+              </Badge>
+            </Link>
+
+            <Link to="/" className="Nav_Item">
+              <AiOutlineSearch size="2rem" />
+            </Link>
+            <Link to="/login" className="Nav_Item">
+              <AiOutlineUser size="2rem" />
+            </Link>
+          </div>
         </div>
-
-        <div className="Mobile" onClick={toggle}>
-          <FaBars />
-        </div>
-        <div className="Navbar_content">
-          <Link to="/" className="Nav_Item">
-            Home
-          </Link>
-
-          <Link to="/" className="Nav_Item">
-            About
-          </Link>
-
-          <Link to="/shop" className="Nav_Item">
-            Shop
-          </Link>
-
-          <Link to="/checkout" className="Nav_Item">
-            <Badge>
-              <HiShoppingCart size="1.5rem" />
-              {cart.length > 0 && (
-                <div className="Header Alert">{cart.length} </div>
-              )}
-            </Badge>
-          </Link>
-
-          <Link to="/login" className="Nav_Item">
-            <AiOutlineUser size="1.5rem" />
-          </Link>
-        </div>
-      </div>
-    </nav>
+      </nav>
+      {/* Diferenciacion de Navbars */}
+    </div>
   );
 };
 
