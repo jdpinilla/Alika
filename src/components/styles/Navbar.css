@@ -10,6 +10,7 @@
   top: 0;
   z-index: 10;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 .Navbar.active {

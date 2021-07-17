@@ -14,13 +14,11 @@
     url('//db.onlinewebfonts.com/t/7cf9fd1dbd9b63d372722fe7b9f13acc.svg#PurissimaBoldW00-Regular')
       format('svg');
 }
-
-.Collections {
+.Carousel {
+  position: relative;
   width: 100%;
-  height: 100%;
-  display: flex;
+  height: calc(70vh);
   overflow: hidden;
-  justify-content: center;
 }
 
 .Collection_Containers {
@@ -36,9 +34,8 @@
 
 .Collection_Containers figure {
   position: relative;
-  height: 400px;
+  height: 320px;
   max-width: 300px;
-  width: 300px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
@@ -58,7 +55,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  margin-top: 90%;
+  margin-top: 70%;
   font-weight: bold;
 }
 
