@@ -1,9 +1,7 @@
 import React from 'react';
 import Collections from '../components/Collections';
-import initialState from '../initialState';
+import Search from '../components/Search';
 const Home = () => {
-  console.log(initialState.categories);
-
   return (
     <>
       <Collections />

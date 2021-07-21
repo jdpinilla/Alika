@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Collection from '../Collection';
 import AppContext from '../../context/AppContext';
-import Grid from '@material-ui/core/Grid';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../styles/Collections.css';
 import Slider from 'react-slick';
+import Banner from '../Banner';
 
 const settings = {
   dots: true,
@@ -13,8 +12,8 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  speed: 2000,
-  autoplaySpeed: 4000,
+  speed: 1000,
+  autoplaySpeed: 3000,
   cssEase: 'linear',
   responsive: [
     {
@@ -48,7 +47,10 @@ const Collections = () => {
   const { categories } = state;
 
   return (
-    <>
+    <div className="Collection">
+      <div className="transition">
+        <Banner />
+      </div>
       <div className="Carousel">
         <Slider {...settings}>
           {categories.map((category) => (
@@ -56,7 +58,7 @@ const Collections = () => {
           ))}
         </Slider>
       </div>
-    </>
+    </div>
   );
 };
 

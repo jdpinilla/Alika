@@ -31,6 +31,7 @@ const useInitialState = () => {
             orders: [...state.orders, payload]
         })
     }
+
     return {
         addToCart,
         removeFromCart,

@@ -12,7 +12,7 @@ import logo from '../images/logo_alika.png';
 import '../styles/Navbar.css';
 import AppContext from '../../context/AppContext';
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggleSidebar, toggleSearch }) => {
   const { state } = useContext(AppContext);
   const [navbar, setNavbar] = useState(false);
   const { cart } = state;
@@ -25,12 +25,11 @@ const Navbar = ({ toggle }) => {
     }
   };
   window.addEventListener('scroll', changeBackground);
-
   return (
     <div>
       <nav className={navbar ? 'Navbar active' : 'Navbar'}>
         <div className="Navbar_container2">
-          <div className="Bars" onClick={toggle}>
+          <div className="Bars" onClick={toggleSidebar}>
             <FaBars size="1.6rem" />
           </div>
           <div className="Nav_img2">
@@ -48,16 +47,15 @@ const Navbar = ({ toggle }) => {
               </Badge>
             </Link>
 
-            <Link to="/" className="Nav_Item">
+            <div className="Nav_Item" onClick={toggleSearch}>
               <AiOutlineSearch size="2rem" />
-            </Link>
+            </div>
             <Link to="/login" className="Nav_Item">
               <AiOutlineUser size="2rem" />
             </Link>
           </div>
         </div>
       </nav>
-      {/* Diferenciacion de Navbars */}
     </div>
   );
 };

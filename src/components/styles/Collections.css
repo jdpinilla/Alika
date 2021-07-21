@@ -75,3 +75,17 @@
   font-size: 18px;
   border-radius: 1px;
 }
+
+.transition {
+  margin: 10px auto;
+  height: 100px;
+  max-width: 800px;
+  font-size: 30px;
+}
+
+.Collection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

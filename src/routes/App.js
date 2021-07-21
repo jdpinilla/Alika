@@ -11,6 +11,7 @@ import '../components/styles/App.css'
 import CheckoutPage from '../pages/CheckoutPage'
 import AppContext from '../context/AppContext'
 import useInitialState from '../hooks/useInitialState'
+import Product from '../pages/Product'
 const App = () => {
     const initialState = useInitialState();
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     <Switch>
                         <Route exact path='/' component={Home} />
                         <Route exact path='/shop' component={Shop} />
+                        <Route exact path='/shop/:id' component={Product} />
                         <Route exact path='/checkout' component={CheckoutPage} />
                         <Route exact path='/checkout/information' component={Information} />
                         <Route exact path='/checkout/payment' component={Payment} />
