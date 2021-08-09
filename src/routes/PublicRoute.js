@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import AppContext from '../context/AppContext';
+import useUser from '../hooks/useUser';
 export default function PublicRoute(props) {
 
-    const { hasRole, state } = useContext(AppContext);
-    const { jwt } = state
+    const { hasRole } = useContext(AppContext);
+    const { jwt } = useUser()
     if (jwt) return <Redirect to="/profile" />
 
     return (

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import '../styles/Login.css';
-import AppContext from '../../context/AppContext';
+import useUser from '../../hooks/useUser';
 
 const validationForm = (form) => {
   let errors = {};
@@ -21,7 +21,7 @@ const validationForm = (form) => {
 };
 
 const Login = () => {
-  const { login, state, isLoginLoaded, hasLoginError } = useContext(AppContext);
+  const { login } = useUser();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
