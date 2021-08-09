@@ -1,14 +1,14 @@
 .Footer {
   height: 160px;
-  background-color: #5a5a5a08;
+  background-color: white;
   bottom: 0;
   width: 100%;
   z-index: 10;
   position: relative;
   display: flex;
   justify-content: center;
-  clear: both;
   overflow: hidden;
+  margin-top: -10px;
 }
 @media screen and (max-width: 768px) {
   .Footer {
@@ -34,7 +34,7 @@
 }
 @media screen and (max-width: 768px) {
   .Footer_Top {
-    padding-top: 10px;
+    padding-top: 0px;
   }
 }
 .Title {
@@ -60,6 +60,7 @@
   align-items: center;
   justify-content: left;
   width: 100%;
+  margin-top: 50px;
 }
 
 .Bot_Item {

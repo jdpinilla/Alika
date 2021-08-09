@@ -17,6 +17,7 @@
   overflow: hidden;
 }
 .ProductDetails_image img {
+  width: 100%;
   max-width: 650px;
 }
 .ProductDetails_Items {
@@ -50,6 +51,11 @@
   font-size: 16px;
   font-family: 'Nunito', sans-serif;
 }
+@media screen and (max-width: 768px) {
+  .ProductDetails_Body {
+    flex-direction: column;
+  }
+}
 
 .ProductDetails_Buttons {
   width: 47.5%;
@@ -66,6 +72,17 @@
   border: 2px solid black;
   font-weight: bold;
   letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .ProductDetails_Buttons {
+    width: 90%;
+  }
+}
+.ProductDetails_Buttons button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 .ProductDetails_Buttons_Black {
   color: white;
@@ -75,9 +92,14 @@
   background-color: white;
 }
 .ProductDetails_Text {
-  max-width: 47.5%;
+  width: 47.5%;
   letter-spacing: 1pt;
   font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  .ProductDetails_Text {
+    width: 90%;
+  }
 }
 .ProductDetails_Text div {
   padding: 20px 0;

@@ -18,98 +18,96 @@ import { useStateValue } from '../Reducers/StateProvider';
 
 import accounting from 'accounting';
 const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: 345,
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    action: {
-        marginTop: '1rem'
-    },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
+  root: {
+    maxWidth: 345,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  action: {
+    marginTop: '1rem',
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
 }));
 
-export default function ShopCard({ product: { id, name, productType, image, priceCOP, description } }) {
+export default function ShopCard({
+  product: { id, name, productType, image, priceCOP, description },
+}) {
+  const classes = useStyles();
+  const [{ basket }, dispatch] = useStateValue();
+  const [expanded, setExpanded] = React.useState(false);
 
-    const classes = useStyles();
-    const [{ basket }, dispatch] = useStateValue();
-    const [expanded, setExpanded] = React.useState(false);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+  const addToBasket = () => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        id,
+        name,
+        productType,
+        image,
+        priceCOP,
+        description,
+      },
+    });
+  };
 
-    const addToBasket = () => {
-        dispatch({
-            type: actionTypes.ADD_TO_BASKET,
-            item: {
-                id,
-                name,
-                productType,
-                image,
-                priceCOP,
-                description
-            }
-        })
-    }
-
-    return (
-        <Card className={classes.root}>
-            <CardHeader
-                action={
-                    <Typography
-                        className={classes.action}
-                        variant='h5'
-                        color='textSecondary'>
-                        {accounting.formatMoney(priceCOP, 'COP')}
-                    </Typography>
-                }
-                title={name}
-                subheader="In Stock"
-            />
-            <CardMedia
-                className={classes.media}
-                image={image}
-                title={name}
-            />
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {productType}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="Add to cart">
-                    <AddShoppingCart fontSize='large' onClick={addToBasket} />
-                </IconButton>
-                <IconButton
-                    className={clsx(classes.expand, {
-                        [classes.expandOpen]: expanded,
-                    })}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                    <Typography paragraph>{description}</Typography>
-                </CardContent>
-            </Collapse>
-        </Card>
-    );
+  return (
+    <Card className={classes.root}>
+      <CardHeader
+        action={
+          <Typography
+            className={classes.action}
+            variant="h5"
+            color="textSecondary"
+          >
+            {accounting.formatMoney(priceCOP, 'COP')}
+          </Typography>
+        }
+        title={name}
+        subheader="In Stock"
+      />
+      <CardMedia className={classes.media} image={image} title={name} />
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {productType}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="Add to cart">
+          <AddShoppingCart fontSize="large" onClick={addToBasket} />
+        </IconButton>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>{description}</Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+  );
 }

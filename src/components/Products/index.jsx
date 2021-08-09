@@ -9,55 +9,56 @@ import '../styles/Products.css';
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
+    padding: '10px',
   },
 }));
 const Products = () => {
   const { state, addToCart } = useContext(AppContext);
-  const { products } = state;
-  const [filtros, setFiltros] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const { products, cart } = state;
+  const [current, setCurrent] = useState(6);
 
-  useEffect(() => {
-    setFiltros(products);
-  }, [products]);
-
+  const handleUpCurrent = () => {
+    setCurrent(current + 3);
+  };
   const handleAddToCart = (product) => () => {
-    addToCart(product);
+    let numeroProductos = 1;
+    const existe = cart.find((item) => item.id === product.id);
+    const index = cart.findIndex((item) => item.id === product.id);
+    if (existe) {
+      cart[index].quantity++;
+      console.log(cart[index].quantity);
+    } else {
+      product = { ...product, quantity: numeroProductos };
+      addToCart(product);
+    }
   };
 
   const classes = useStyles();
 
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
-    filter(e.target.value);
-  };
-
-  const filter = (search) => {
-    setFiltros(products);
-    var searchResult = products.filter((item) => {
-      if (item.name.toString().toLowerCase().includes(search.toLowerCase())) {
-        return item;
-      }
-    });
-    setFiltros(searchResult);
-  };
   return (
     <div className="Products">
-      <input
-        type="text"
-        placeholder="Search"
-        value={searchTerm}
-        onChange={handleChange}
-      />
       <div className={classes.root}>
-        <Grid container spacing={1}>
-          {filtros.map((product) => (
-            <Grid key={product.id} item xs={12} sm={6} md={4}>
-              <Product product={product} handleAddToCart={handleAddToCart} />{' '}
-            </Grid>
-          ))}
+        <Grid container spacing={3}>
+          {products.map(
+            (product, index) =>
+              index < current && (
+                <Grid key={product.id} item xs={12} sm={6} md={4}>
+                  <Product
+                    product={product}
+                    handleAddToCart={handleAddToCart}
+                  />{' '}
+                </Grid>
+              )
+          )}
         </Grid>
       </div>
+      {current < products.length && (
+        <div className="button_Container">
+          <button className="button_LoadMore" onClick={handleUpCurrent}>
+            CARGAR MAS
+          </button>
+        </div>
+      )}
     </div>
   );
 };

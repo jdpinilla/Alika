@@ -3,7 +3,11 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  font-family: 'Roboto Slab', serif;
+  position: relative;
+  overflow: auto;
+  margin-bottom: 10px;
 }
 .Checkout-content {
   display: flex;
@@ -11,6 +15,7 @@
   max-width: 1000px;
   height: 80vh;
   flex-direction: column;
+  font-size: 16px;
 }
 .Checkout-item {
   display: flex;
@@ -23,9 +28,84 @@
   justify-content: space-between;
   width: 100%;
   height: 150px;
+  padding: 10px;
+  border: solid 1px #dedede;
+  margin: 5px 0;
+  border-radius: 10px;
+  background: #fbfafad9;
+}
+.Checkout-element button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.Checkout-element-product {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.Checkout-element-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
 }
 .Checkout-element-product img {
-  max-height: 150px;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+.Checkout-element-buttonSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9d9d9d;
+}
+.Checkout-element-buttonQuantity {
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border: solid 1px #d3d3d3;
+  padding: 5px;
+  margin-bottom: 8px;
+  color: #9d9d9d;
+}
+.Checkout-element-buttonRemove {
+  padding-top: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #747171;
+  transition: 0.4s;
+}
+.Checkout-element-buttonRemove:hover {
+  transform: scale(1.1);
+}
+.Checkout-element-buttonQuantity button {
+  font-size: 20px;
+  margin: 0 5px;
+  color: #9d9d9d;
+}
+.Checkout-sidebar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.Checkout-sidebar button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #95ba5e;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.Checkout-sidebar button:hover {
+  transform: scale(1.1);
 }
 .No_Product {
   display: flex;

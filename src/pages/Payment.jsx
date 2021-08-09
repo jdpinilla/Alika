@@ -17,7 +17,7 @@ const Payment = () => {
           </div>
         ))}
         <div className="Payment-button">
-          PayPal Button MercadoPago Button
+          MercadoPago Button
           {/* <PayPalButton
             paypalOptions={paypalOptions}
             buttonStyles={buttonStyles}

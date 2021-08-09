@@ -12,50 +12,75 @@ const CheckoutPage = () => {
 
   const handleTotal = () => {
     const reducer = (accumulator, currentValue) =>
-      accumulator + currentValue.priceCOP;
+      accumulator + currentValue.priceCOP * currentValue.quantity;
     const sum = cart.reduce(reducer, 0);
     return sum;
+  };
+
+  const handleAddOne = (i) => () => {
+    cart[i].quantity++;
+    console.log(cart[i].quantity);
+    // window.location.reload
+  };
+  const handleRestOne = (i) => () => {
+    cart[i].quantity--;
+    console.log(cart[i].quantity);
+    // window.location.reload();
   };
   return (
     <div className="Checkout">
       {cart.length > 0 ? (
-        <h3>Lista de pedidos</h3>
+        <div className="Checkout-content">
+          <h3>Lista de pedidos</h3>
+          {cart.map((item, i) => (
+            <div className="Checkout-element">
+              <div className="Checkout-element-product">
+                <div>
+                  <img src={item.image} alt={item.name} />
+                </div>
+                <div className="Checkout-element-info">
+                  <h4>{item.name.toUpperCase()}</h4>
+                  <span>${item.priceCOP}</span>
+                </div>
+                <div className="Checkout-element-buttonSection">
+                  <div className="Checkout-element-buttonQuantity">
+                    <button type="button" onClick={handleRestOne(i)}>
+                      -
+                    </button>
+                    {item.quantity}
+                    <button type="button" onClick={handleAddOne(i)}>
+                      +
+                    </button>
+                  </div>
+                  <button
+                    className="Checkout-element-buttonRemove"
+                    type="button"
+                    onClick={handleRemove(item, i)}
+                  >
+                    REMOVE
+                  </button>
+                </div>
+                <div className="Checkout-element-totalItem">
+                  {item.priceCOP * item.quantity}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {cart.length > 0 && (
+            <div className="Checkout-sidebar">
+              <h3>{`Precio Total: $ ${handleTotal()}`}</h3>
+              <Link to="/checkout/information">
+                <button type="button">CONTINUAR PEDIDO</button>
+              </Link>
+            </div>
+          )}
+        </div>
       ) : (
         <div className="No_Product">
           <p>YOUR CART IS EMPTY</p>
           <Link to="/shop">
             <button type="button">SHOP OUR PRODUCTS</button>
-          </Link>
-        </div>
-      )}
-      <div className="Checkout-content">
-        {cart.map((item, i) => (
-          <div className="Checkout-item">
-            <div className="Checkout-element-product">
-              <img src={item.image} alt={item.name} />
-              <div className="Checkout-element-info">
-                <h4>{item.name}</h4>
-                <span>${item.priceCOP}</span>
-              </div>
-              <div className="Checkout element-quantity">
-                <button>+</button>
-                <input type="text" />
-                <button>-</button>
-              </div>
-              <div className="Checkout-element-total"></div>
-            </div>
-
-            <button type="button" onClick={handleRemove(item, i)}>
-              <i className="fas fa-trash-alt" />
-            </button>
-          </div>
-        ))}
-      </div>
-      {cart.length > 0 && (
-        <div className="Checkout-sidebar">
-          <h3>{`Precio Total: $ ${handleTotal()}`}</h3>
-          <Link to="/checkout/information">
-            <button type="button">Continuar pedido</button>
           </Link>
         </div>
       )}
