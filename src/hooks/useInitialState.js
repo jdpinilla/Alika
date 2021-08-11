@@ -1,9 +1,7 @@
 import { useState, useCallback } from 'react';
 import initialState from '../initialState';
-import loginService from '../services/login'
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
-  const hasRole = (role) => user?.role === role
 
   // const login = useCallback(({ email, password },) => {
   //   setState({
@@ -71,7 +69,7 @@ const useInitialState = () => {
     addToBuyer,
     addNewOrder,
     state,
-    hasRole,
+
     // login,
     // isLoginLoaded: state.loading,
     // hasLoginError: state.error,

@@ -6,6 +6,7 @@ export default function useUser() {
     const { jwt, setJWT, user } = useContext(Context)
     const [state, setState] = useState({ loading: false, error: true })
 
+    const hasRole = (role) => user?.role === role
     const login = useCallback(({ email, password },) => {
         setState({ loading: true, error: false })
         loginService({ email, password })
@@ -32,7 +33,7 @@ export default function useUser() {
         jwt,
         user,
         isLoginLoaded: state.loading,
-        hasLoginError: state.error
-
+        hasLoginError: state.error,
+        hasRole
     }
 }

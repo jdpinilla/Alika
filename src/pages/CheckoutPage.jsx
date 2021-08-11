@@ -28,7 +28,7 @@ const CheckoutPage = () => {
     // window.location.reload();
   };
   return (
-    <div className="Checkout">
+    <div className="Checkout" >
       {cart.length > 0 ? (
         <div className="Checkout-content">
           <h3>Lista de pedidos</h3>
@@ -70,7 +70,7 @@ const CheckoutPage = () => {
           {cart.length > 0 && (
             <div className="Checkout-sidebar">
               <h3>{`Precio Total: $ ${handleTotal()}`}</h3>
-              <Link to="/checkout/information">
+              <Link to="/checkout/payment">
                 <button type="button">CONTINUAR PEDIDO</button>
               </Link>
             </div>

@@ -29,6 +29,7 @@ const Products = () => {
       console.log(cart[index].quantity);
     } else {
       product = { ...product, quantity: numeroProductos };
+
       addToCart(product);
     }
   };

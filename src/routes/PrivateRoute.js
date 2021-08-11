@@ -6,8 +6,7 @@ import useUser from '../hooks/useUser';
 
 export default function PrivateRoute({ hasRole: role, ...rest }) {
 
-    const { hasRole, } = useContext(AppContext);
-    const { jwt } = useUser()
+    const { jwt, hasRole } = useUser()
     if (!jwt) {
         console.log(jwt)
         return <Redirect to={routes.signin} />
