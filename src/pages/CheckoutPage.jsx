@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import useUser from '../hooks/useUser';
 import AppContext from '../context/AppContext';
 import './styles/Checkout.css';
 const CheckoutPage = () => {
   const { state, removeFromCart } = useContext(AppContext);
   const { cart } = state;
-
+  const { payment, preferenceId} = useUser()
   const handleRemove = (product, i) => () => {
     removeFromCart(product, i);
   };
@@ -19,14 +20,15 @@ const CheckoutPage = () => {
 
   const handleAddOne = (i) => () => {
     cart[i].quantity++;
-    console.log(cart[i].quantity);
     // window.location.reload
   };
   const handleRestOne = (i) => () => {
     cart[i].quantity--;
-    console.log(cart[i].quantity);
     // window.location.reload();
   };
+  const handlePayment = () =>{
+    payment({cart})
+  }
   return (
     <div className="Checkout" >
       {cart.length > 0 ? (
@@ -70,8 +72,8 @@ const CheckoutPage = () => {
           {cart.length > 0 && (
             <div className="Checkout-sidebar">
               <h3>{`Precio Total: $ ${handleTotal()}`}</h3>
-              <Link to="/checkout/payment">
-                <button type="button">CONTINUAR PEDIDO</button>
+              <Link to="/checkout/payment" >
+                <button type="button" onClick={handlePayment}>CONTINUAR PEDIDO</button>
               </Link>
             </div>
           )}

@@ -1,18 +1,13 @@
 const ENDPOINT = 'http://localhost:3000'
-import Axios from 'axios'
+import axios from 'axios'
 
-export default function payment({ order }) {
-    return Axios({
-        method: 'GET',
-        data: {
-            order
-        },
-        withCredentials: true,
-        url: `${ENDPOINT}/checkout/`
-    }).then(res => {
-        const { data } = res
-        console.log(data)
-        return data
-    })
-        .catch(e => console.log(e))
+export default function payment({ cart }) {
+    return axios.post('http://localhost:3000/checkout/', { cart: cart })
+        .then((req) => {
+            const data = req.data.preferenceId
+            return data
+        })
+        .catch(e => {
+            console.error(e)
+        })
 }

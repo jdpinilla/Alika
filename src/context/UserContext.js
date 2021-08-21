@@ -7,16 +7,16 @@ export function UserContextProvider({ children }) {
         () => window.sessionStorage.getItem('jwt')
     )
     const [user, setUser] = useState({})
+    const [preferenceId, setPreferenceId] = useState(null)
 
     useEffect(() => {
         console.log(jwt)
         if (jwt) {
             getUser({ jwt }).then(setUser)
-            console.log(user)
         }
     }, [jwt])
 
-    return <Context.Provider value={{ jwt, setJWT, user }}>
+    return <Context.Provider value={{ jwt, setJWT, user, preferenceId, setPreferenceId }}>
         {children}
     </Context.Provider>
 }
